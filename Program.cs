@@ -7,7 +7,7 @@
 
     static string OrdenaTexto()
     {
-        Dictionary<Int32, String[]> listaPalavras = [];
+        Dictionary<Int32, String> listaPalavras = [];
         int repeticoes = 0;
         String linha;
         String[] palavras = [];
@@ -19,13 +19,19 @@
             while (linha != null)
             {
                 palavras = linha.Split();
-                listaPalavras.Add(repeticoes++, palavras);
                 linha = reader.ReadLine();
                 foreach (string palavra in palavras)
                 {
-                    Console.WriteLine(palavra);
+                    if (listaPalavras.ContainsValue(palavra))
+                    {
+                    }
+                    else
+                    {
+                        listaPalavras.Add(repeticoes++, palavra);
+                    }
                 }
             }
+            Console.WriteLine(String.Join(",", listaPalavras));
 
 
             reader.Close();
