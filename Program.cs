@@ -10,7 +10,7 @@
         Dictionary<Int32, String[]> listaPalavras = [];
         int repeticoes = 0;
         String linha;
-        String[] palavra;
+        String[] palavras = [];
         try
         {
             StreamReader reader = new StreamReader("C:\\Users\\Isaque\\Desktop\\Arquivos\\arquivo_teste.txt");
@@ -18,13 +18,17 @@
             
             while (linha != null)
             {
-                palavra = linha.Split();
-                listaPalavras.Add(repeticoes++, palavra);
+                palavras = linha.Split();
+                listaPalavras.Add(repeticoes++, palavras);
                 linha = reader.ReadLine();
+                foreach (string palavra in palavras)
+                {
+                    Console.WriteLine(palavra);
+                }
             }
 
+
             reader.Close();
-            Console.WriteLine(String.Join(",", listaPalavras));
         }
         catch(Exception e)
         {
