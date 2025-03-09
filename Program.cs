@@ -7,10 +7,10 @@
 
     static string OrdenaTexto()
     {
-        Dictionary<Int32, String> listaPalavras = [];
+        Dictionary<Int32, String[]> listaPalavras = [];
         int repeticoes = 0;
         String linha;
-        String palavra;
+        String[] palavra;
         try
         {
             StreamReader reader = new StreamReader("C:\\Users\\Isaque\\Desktop\\Arquivos\\arquivo_teste.txt");
@@ -18,7 +18,8 @@
             
             while (linha != null)
             {
-                listaPalavras.Add(repeticoes++, linha);
+                palavra = linha.Split();
+                listaPalavras.Add(repeticoes++, palavra);
                 linha = reader.ReadLine();
             }
 
