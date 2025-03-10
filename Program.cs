@@ -22,12 +22,12 @@
                 linha = reader.ReadLine();
                 foreach (string palavra in palavras)
                 {
-                    if (listaPalavras.ContainsValue(palavra))
+                    if (listaPalavras.ContainsValue(palavra.Replace(",","")))
                     {
                     }
                     else
                     {
-                        listaPalavras.Add(repeticoes++, palavra);
+                        listaPalavras.Add(repeticoes++, palavra.Replace(",", ""));
                     }
                 }
             }
